@@ -2,7 +2,7 @@ import { Component, Injectable } from '@angular/core';
 import { AngularFirestore, DocumentData, DocumentReference } from '@angular/fire/firestore';
 import { MatDialog } from '@angular/material/dialog';
 import { DeleteSongConfirmationComponent } from '../delete-song-confirmation/delete-song-confirmation.component';
-import { Song } from '../models';
+import { ISong } from '../models';
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +17,7 @@ export class DeleteSongCommand {
 
     return dialogRef.afterClosed().toPromise().then(async (result) => {
       if (result) {
-        await this.db.collection('songs').doc<Song>(songId).ref.delete();
+        await this.db.collection('songs').doc<ISong>(songId).ref.delete();
         return true;
       } else {
         return false;

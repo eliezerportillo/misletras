@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "mis-letras-app"
+  },
+  "targets": {
+    "mis-letras-app": {
+      "hosting": {
+        "misletras-app": [
+          "mis-letras-app"
+        ]
+      }
+    }
+  }
+}

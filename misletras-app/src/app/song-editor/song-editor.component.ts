@@ -5,7 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Editor, toDoc, toHTML, Toolbar, Validators } from 'ngx-editor';
 import { DeleteSongCommand } from '../commands/delete-song.cmd';
 import { SaveSongCommand } from '../commands/save-song.cmd';
-import { Song } from '../models';
+import { ISong } from '../models';
 
 @Component({
   selector: 'app-song-editor',
@@ -25,14 +25,14 @@ export class SongEditorComponent implements OnInit {
     this.toolbar = [];
     this.form = new FormGroup({});
     this.songId = route.snapshot.paramMap.get('id') || '';
-    this.model = route.snapshot.data['song'] as Song;
+    this.model = route.snapshot.data['song'] as ISong;
 
   }
   songId: string;
   editor: Editor;
   toolbar: Toolbar;
   form: FormGroup;
-  model: Song;
+  model: ISong;
 
   get isNew(): boolean { return this.model.id == '' ? true : false; }
   get name() { return this.form.get('name')?.value; }
@@ -54,7 +54,7 @@ export class SongEditorComponent implements OnInit {
   }
 
   save() {
-    const data: Song = {
+    const data: ISong = {
       id: this.songId,
       title: this.name,
       text: this.html

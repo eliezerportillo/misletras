@@ -4,7 +4,7 @@ import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/fire
 import { FormControl } from '@angular/forms';
 import { map, startWith } from 'rxjs/operators';
 import { Observable } from 'rxjs';
-import { Song } from '../models';
+import { ISong } from '../models';
 
 @Component({
   selector: 'app-song-list',
@@ -14,9 +14,9 @@ import { Song } from '../models';
 export class SongListComponent implements OnInit {
 
   title: string;
-  private collectionRef: AngularFirestoreCollection<Song>;
-  list: Song[];
-  filteredList?: Observable<Song[]>;
+  private collectionRef: AngularFirestoreCollection<ISong>;
+  list: ISong[];
+  filteredList?: Observable<ISong[]>;
   filter: FormControl;
   constructor(
     private route: ActivatedRoute,
@@ -50,7 +50,7 @@ export class SongListComponent implements OnInit {
       });
   }
 
-  private _filtrar(filtro: string): Song[] {
+  private _filtrar(filtro: string): ISong[] {
     const lower = filtro.toLowerCase();
     return this.list.filter(element => element.title.toLowerCase().includes(lower));
   }

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore, DocumentData, DocumentReference } from '@angular/fire/firestore';
-import { Song } from '../models';
+import { ISong } from '../models';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +9,7 @@ export class SaveSongCommand {
 
   constructor(private db: AngularFirestore) { }
 
-  execute(data: Song): Promise<void> {
+  execute(data: ISong): Promise<void> {
     const temp = {
       title: data.title,
       text: data.text
@@ -18,11 +18,11 @@ export class SaveSongCommand {
     let doc: DocumentReference;
     // será un nuevo invitado si no tiene id
     if (data.id === '') {
-      doc = this.db.collection('songs').doc<Song>().ref;
+      doc = this.db.collection('songs').doc<ISong>().ref;
     }
     else {
       // En caso contrario, Se añadirá una referencia al invitado existente
-      doc = this.db.collection('songs').doc<Song>(data.id).ref;
+      doc = this.db.collection('songs').doc<ISong>(data.id).ref;
     }
 
     return doc.set(temp, { merge: true });

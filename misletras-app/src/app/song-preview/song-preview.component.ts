@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Song } from '../models';
+import { ISong } from '../models';
 
 @Component({
   selector: 'app-song-preview',
@@ -8,9 +8,11 @@ import { Song } from '../models';
 })
 export class SongPreviewComponent implements OnInit {
 
+  modes = SongPreviewMode;
   constructor() {
     this.text = '';
     this.index = 0;
+    this.mode = SongPreviewMode.live;
   }
 
   @Input()
@@ -19,9 +21,17 @@ export class SongPreviewComponent implements OnInit {
   @Input()
   index: number;
 
+  @Input()
+  mode: SongPreviewMode;
+
   get show(): boolean { return this.text.length > 0; }
   get numeration(): number { return this.index + 1; }
   ngOnInit(): void {
   }
 
+}
+
+export enum SongPreviewMode {
+  live,
+  icon
 }

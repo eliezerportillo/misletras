@@ -20,9 +20,13 @@
         <span>Sin canciones</span>
     </div>
 
-    <mat-nav-list class="list">
-        <mat-list-item *ngFor="let item of filteredList | async" [routerLink]="item.id">
-            <span>{{item.title}}</span>
+    <mat-list>
+
+        <mat-list-item *ngFor="let item of filteredList | async">
+            <a mat-button matLine [routerLink]="item.id + '/live'" style="text-align: left;">{{ item.title }}</a>
+            <button mat-icon-button [routerLink]="item.id">
+                <mat-icon>edit</mat-icon>
+            </button>
         </mat-list-item>
-    </mat-nav-list>
+    </mat-list>
 </div>

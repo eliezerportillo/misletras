@@ -6,14 +6,14 @@ import {
 } from '@angular/router';
 import { Observable, of, forkJoin } from 'rxjs';
 import { AngularFirestore } from '@angular/fire/firestore';
-import { Song } from './models';
+import { ISong } from './models';
 
 @Injectable({
   providedIn: 'root'
 })
-export class SongResolver implements Resolve<Song> {
+export class SongResolver implements Resolve<ISong> {
 
-  empty: Song;
+  empty: ISong;
   constructor(private db: AngularFirestore) {
     this.empty = {
       id: '',
@@ -22,7 +22,7 @@ export class SongResolver implements Resolve<Song> {
     };
   }
 
-  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Song> | Promise<Song> {
+  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<ISong> | Promise<ISong> {
     const id: string = route.paramMap.get('id') || '';
     if (id === '') {
       return of(this.empty);
@@ -33,7 +33,7 @@ export class SongResolver implements Resolve<Song> {
   }
 
   async get(id: string) {
-    const ref = await this.db.collection<Song>('songs')
+    const ref = await this.db.collection<ISong>('songs')
       .doc(id)
       .get()
       .toPromise();

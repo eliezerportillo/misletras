@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { SongEditorComponent } from './song-editor/song-editor.component';
 import { SongListComponent } from './song-list/song-list.component';
+import { SongLiveComponent } from './song-live/song-live.component';
 import { SongResolver } from './song.resolver';
 
 const routes: Routes = [
@@ -28,6 +29,13 @@ const routes: Routes = [
   {
     path: 'songs/:id',
     component: SongEditorComponent,
+    resolve:{
+      song: SongResolver
+    }
+  },
+  {
+    path: 'songs/:id/live',
+    component: SongLiveComponent,
     resolve:{
       song: SongResolver
     }
