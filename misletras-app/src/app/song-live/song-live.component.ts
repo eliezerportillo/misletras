@@ -52,7 +52,7 @@ export class SongLiveComponent implements OnInit, AfterViewInit {
     this.center = this.contentWidth / 2;
   }
 
-  current: { html: string };
+  current: { html: string, notes: string };
 
   ngOnInit(): void {
   }

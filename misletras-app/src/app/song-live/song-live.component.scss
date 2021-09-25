@@ -4,10 +4,24 @@
 
 * {
     line-height: initial;
-    padding: 8px;
     text-align: center;
+    display: flex;
+}
+
+header {
+    padding: 16px;
 }
 
 .content {
-    min-height: 98vh;
+    height: 100%;
+    padding: 0 16px;
+}
+
+.lyrics {
+    h3 {
+        font-size: 32px;
+        strong {
+            font-size: 32px;
+        }
+    }
 }

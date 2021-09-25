@@ -1,10 +1,15 @@
-<mat-toolbar fxLayout="row" fxLayoutAlign="space-between center">
-    <span>{{song.title}}</span>
+<div fxLayout="column" style="height: 100%;">
+    <header fxLayout="row" fxLayoutAlign="space-between center">
+        <span>{{song.title}}</span>
 
-    <span>{{index + 1}} / {{song.parts.length}}</span>
-</mat-toolbar>
+        <span>{{index + 1}} / {{song.parts.length}}</span>
+    </header>
 
-<div #content fxLayout fxLayoutAlign="center stretch" (click)="move($event)" matRipple [matRippleRadius]="32"
-    class="content">
-    <div [fittext] [innerHTML]="current.html"></div>
+    <div [innerHtml]="current.notes" fxLayout fxLayoutAlign="center center"></div>
+
+    <div #content fxLayout="row" fxLayoutAlign="center stretch" (click)="move($event)" matRipple [matRippleRadius]="32"
+        class="content">
+        <div [fittext] [innerHTML]="current.html" fxLayout="column" fxLayoutAlign="center stretch" class="lyrics"></div>
+    </div>
+
 </div>
