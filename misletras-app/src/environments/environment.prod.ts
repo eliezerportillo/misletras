@@ -7,5 +7,7 @@ export const environment = {
     storageBucket: "mis-letras-app.appspot.com",
     messagingSenderId: "927513801269",
     appId: "1:927513801269:web:cae0015b8ec1b38eb6f77c"
-  }
+  },
+  socketWebUrl: 'https://mis-letras-api.azurewebsites.net'
+
 };

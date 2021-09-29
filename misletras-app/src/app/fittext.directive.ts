@@ -59,7 +59,6 @@ export class FittextDirective implements AfterViewInit, OnInit, OnChanges, OnDes
     }
 
     this.changeSizeSub = this.changeSize$.pipe(throttleTime(this.throttleTime, undefined, throttleConfig)).subscribe(() => {
-      console.log('setFontSize');
       if (this.activateOnResize) {
         this.setFontSize();
       }

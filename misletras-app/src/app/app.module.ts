@@ -30,6 +30,9 @@ import { SaveSongCommand } from './commands/save-song.cmd';
 import { DeleteSongConfirmationComponent } from './delete-song-confirmation/delete-song-confirmation.component';
 import { MaterialModule } from './material/material.module';
 import { FittextDirective } from './fittext.directive';
+import { CookieService } from 'ngx-cookie-service';
+import { SocketWebService } from './core/socket-web.service';
+import { SongCookieService } from './core/song-cookie.service';
 
 
 
@@ -58,7 +61,7 @@ import { FittextDirective } from './fittext.directive';
     AngularFirestoreModule,
   ],
   entryComponents: [DeleteSongConfirmationComponent],
-  providers: [SaveSongCommand],
+  providers: [SaveSongCommand, CookieService, SocketWebService, SongCookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -43,7 +43,7 @@ export class SongResolver implements Resolve<ISong> {
     if (!doc) {
       return this.empty;
     }
-
+    doc.id = id;
     return doc;
   }
 }
