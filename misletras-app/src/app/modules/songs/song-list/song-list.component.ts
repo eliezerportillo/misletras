@@ -38,8 +38,8 @@ export class SongListComponent implements OnInit {
         this.list = [];
         querySnapshot.forEach((doc) => {
           const data = doc.payload.doc.data();
-          const docId = doc.payload.doc.id;
-          this.list.push({ id: docId, title: data.title, text: data.text });
+          data.id = doc.payload.doc.id;
+          this.list.push(data);
         });
 
         this.filteredList = this.filter.valueChanges.pipe(

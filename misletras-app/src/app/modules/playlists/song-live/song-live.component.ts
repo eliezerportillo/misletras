@@ -1,9 +1,8 @@
 import { AfterViewInit, Component, ElementRef, EventEmitter, HostListener, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { SocketWebService } from '../core/socket-web.service';
-import { SongCookieService } from '../core/song-cookie.service';
-import { ISong, Song } from '../models';
-import { SongPreviewMode } from '../song-preview/song-preview.component';
+import { SocketWebService } from '../../../core/socket-web.service';
+import { SongCookieService } from './song-cookie.service';
+import { ISong, Song } from '../../songs/models';
 
 @Component({
   selector: 'app-song-live',
@@ -12,7 +11,6 @@ import { SongPreviewMode } from '../song-preview/song-preview.component';
 })
 export class SongLiveComponent implements OnInit, AfterViewInit {
   song: Song;
-  modePreview: SongPreviewMode = SongPreviewMode.icon;
   @ViewChild('content') elementView?: ElementRef;
   contentWidth: number;
   center: number;

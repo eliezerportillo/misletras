@@ -2,9 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore, DocumentData, DocumentReference } from '@angular/fire/firestore';
 import { ISong } from '../models';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class SaveSongCommand {
 
   constructor(private db: AngularFirestore) { }
@@ -25,6 +23,6 @@ export class SaveSongCommand {
       doc = this.db.collection('songs').doc<ISong>(data.id).ref;
     }
 
-    return doc.set(temp, { merge: true });
+    return doc.set(data, { merge: true });
   };
 }

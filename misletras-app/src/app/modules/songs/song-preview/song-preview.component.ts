@@ -1,5 +1,4 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ISong } from '../models';
 
 @Component({
   selector: 'app-song-preview',

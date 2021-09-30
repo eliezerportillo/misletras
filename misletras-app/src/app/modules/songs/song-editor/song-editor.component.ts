@@ -26,13 +26,26 @@ export class SongEditorComponent implements OnInit {
     this.form = new FormGroup({});
     this.songId = route.snapshot.paramMap.get('id') || '';
     this.model = route.snapshot.data['song'] as ISong;
-
+    this.keys = [
+      'A',
+      'A#/Bb',
+      'B',
+      'C',
+      'C#/Db',
+      'D',
+      'D#/Eb',
+      'E',
+      'F',
+      'F#/Gb',
+      'G',
+    ]
   }
   songId: string;
   editor: Editor;
   toolbar: Toolbar;
   form: FormGroup;
   model: ISong;
+  keys: string[];
 
   get isNew(): boolean { return this.model.id == '' ? true : false; }
   get name() { return this.form.get('name')?.value; }
@@ -57,7 +70,9 @@ export class SongEditorComponent implements OnInit {
     const data: ISong = {
       id: this.songId,
       title: this.name,
-      text: this.html
+      text: this.html,
+      key: this.form.get('key')?.value,
+      bpm: this.form.get('bpm')?.value,
     }
 
     if (this.form.invalid) {
@@ -99,6 +114,8 @@ export class SongEditorComponent implements OnInit {
         toDoc(this.model.text),
         Validators.required()
       ),
+      key: new FormControl(this.model.key),
+      bpm: new FormControl(this.model.bpm, validators.min(0))
     });
 
     // this.editor.setContent(this.model.text);

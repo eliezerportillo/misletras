@@ -1,10 +1,8 @@
 import { Injectable } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
-import { ISong } from '../models';
+import { ISong } from '../../songs/models';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class SongCookieService {
 
   constructor(private cookier: CookieService) { }

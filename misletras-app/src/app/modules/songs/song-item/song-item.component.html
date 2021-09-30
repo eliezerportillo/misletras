@@ -1,0 +1,18 @@
+<mat-card class="example-card" *ngIf="_song">
+    <mat-card-header [routerLink]="'/playlists/live/' + _song.id" matRipple>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title>{{_song.title}}</mat-card-title>
+        <mat-card-subtitle>Tonalidad <strong>{{_song.key || '?'}}</strong> BPM <strong>{{_song.bpm || '?'}}</strong>
+        </mat-card-subtitle>
+    </mat-card-header>
+
+    <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
+    <mat-card-content>
+        <div id="verse" [innerHtml]="verse" style="text-align: center;"></div>
+    </mat-card-content>
+
+    <mat-card-actions align="end">
+        <a [routerLink]="_song.id" mat-button>EDITAR</a>
+        <a [routerLink]="'/playlists/live/' + _song.id" mat-button color="accent">EN VIVO</a>
+    </mat-card-actions>
+</mat-card>

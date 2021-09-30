@@ -1,7 +1,10 @@
 <div fxLayout="column" style="height: 100%;">
     <header fxLayout="row" fxLayoutAlign="space-between center">
         <span>{{song.title}}</span>
-
+        <div>
+            <code>{{song.key}} |</code>
+            <code>| {{song.bpm}} BPM</code>
+        </div>
         <span>{{index + 1}} / {{song.parts.length}}</span>
     </header>
 

@@ -2,18 +2,24 @@ export interface ISong {
     title: string;
     text: string;
     id: string;
+    key: string;
+    bpm: string;
 }
 
 export class Song implements ISong {
     title: string;
     text: string;
     id: string;
+    key: string;
+    bpm: string;
     readonly parts: { html: string, notes: string }[];
 
     constructor(song: ISong) {
         this.title = song.title;
         this.text = song.text;
         this.id = song.id;
+        this.key = song.key;
+        this.bpm = song.bpm;
         this.parts = this.text.split(/(?=<p>)/g).map(p => {
             return {
                 html: p.replace(/<h.>.*<\/h.>/g, ''),
@@ -21,4 +27,7 @@ export class Song implements ISong {
             }
         })
     }
+    
+
+    get firstVerse() { return this.parts[0].html; }
 }

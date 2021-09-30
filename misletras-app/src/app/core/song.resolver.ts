@@ -6,7 +6,7 @@ import {
 } from '@angular/router';
 import { Observable, of, forkJoin } from 'rxjs';
 import { AngularFirestore } from '@angular/fire/firestore';
-import { ISong } from './models';
+import { ISong } from '../modules/songs/models';
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +18,9 @@ export class SongResolver implements Resolve<ISong> {
     this.empty = {
       id: '',
       title: '',
-      text: ''
+      text: '',
+      key: '',
+      bpm: ''
     };
   }
 

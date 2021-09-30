@@ -17,9 +17,24 @@
 
     <mat-card fxLayout="column" fxLayoutAlign="start stretch">
         <mat-form-field>
-            <mat-label>Nombre de la canción</mat-label>
+            <mat-label>Nombre de la canción *</mat-label>
             <input matInput placeholder="Placeholder" formControlName="name">
             <mat-icon matSuffix>music_note</mat-icon>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Tonalidad</mat-label>
+            <mat-select formControlName="key">
+                <mat-option *ngFor="let item of keys" [value]="item">
+                    {{item}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>BPM</mat-label>
+            <input matInput placeholder="Tempo" formControlName="bpm" type="number">
+            <mat-icon matSuffix>hourglass_full</mat-icon>
         </mat-form-field>
 
         <div class="editor">
