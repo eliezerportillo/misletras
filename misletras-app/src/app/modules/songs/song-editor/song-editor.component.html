@@ -2,12 +2,16 @@
     <span>{{isNew ? 'Nueva ' : 'Editar '}} canción</span>
 
     <div fxLayoutGap="8px">
-        <button mat-flat-button color="warn" *ngIf="!isNew" (click)="delete()">
+        <button mat-flat-button color="warn" *ngIf="!isNew && isOwner" (click)="delete()">
             <mat-icon>delete</mat-icon>
         </button>
 
-        <button mat-flat-button color="accent" (click)="save()">
-            {{isNew ? 'Guardar' : 'Actualizar'}}
+        <button mat-flat-button color="accent" *ngIf="isNew" (click)="save()">
+            Guardar
+        </button>
+
+        <button mat-flat-button color="accent" *ngIf="!isNew && isOwner" (click)="save()">
+            Actualizar
         </button>
     </div>
 

@@ -1,0 +1,51 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+.logo {
+    font-size: xxx-large;
+}.facebook {
+    background-color: #3B5998;
+    color: white;
+}
+
+.google {
+    background-color: #dd4b39;
+    color: white;
+}
+.banner-1 {
+    margin-top: 64px;
+}
+.main {
+    // background-image: url("../../../assets/slide_2.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    font-family: 'Roboto', sans-serif;
+}strong {
+    font-weight: 400;
+}
+
+button {
+    min-width: 175px;
+}
+.banner-1 h1 {
+    font-family: "barberstreet";
+    text-align: center;
+    font-size: 3.2em;
+    font-weight: normal;
+}
+
+.apple {
+    background-color: rgba(0,0,0,0.92);
+    color: white;
+}
+
+.microsoft {
+    
+    background-color: #0067b8;
+    border: #0067b8 solid 1px;
+    color: white;
+}

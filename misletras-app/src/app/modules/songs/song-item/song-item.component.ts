@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/core/auth.service';
 import { ISong, Song } from '../models';
 
 @Component({
@@ -9,7 +10,7 @@ import { ISong, Song } from '../models';
 export class SongItemComponent implements OnInit {
   _song?: Song;
 
-  constructor() { }
+  constructor(private auth: AuthService) { }
 
   @Input()
   set song(value: ISong) {
@@ -18,7 +19,9 @@ export class SongItemComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  get isOwner() {
+    return this.song?.userId == this.auth.user?.uid;
+  }
   get verse() {
     return this._song?.firstVerse
       .replace(/<strong>|<\/strong>|<em>|<\/em>|\/\/|\\\\/, '');

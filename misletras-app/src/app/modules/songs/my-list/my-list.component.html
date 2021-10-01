@@ -1,6 +1,4 @@
 <div fxLayout="column" fxLayoutAlign="space-between stretch">
-    <!-- <mat-toolbar>{{title}}</mat-toolbar> -->
-
 
     <div class="search" fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="8px">
 
@@ -9,18 +7,21 @@
             <input matInput placeholder="Buscar" [formControl]="filter">
             <mat-icon matSuffix>search</mat-icon>
         </mat-form-field>
-        <!-- <button mat-flat-button color="accent" [routerLink]="['add']">
+        <button mat-flat-button color="accent" [routerLink]="['add']">
             <mat-icon>add</mat-icon>
-        </button> -->
+        </button>
 
     </div>
 
-    <div *ngIf="sinInvitados" fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="8px">
+    <div *ngIf="noData" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="8px" style="margin-top: 64px;">
         <mat-icon>playlist_play</mat-icon>
         <span>Sin canciones</span>
+        <button mat-flat-button color="accent" [routerLink]="['add']">
+            Agregar una canción
+        </button>
     </div>
 
-    <div fxLayout="column" fxLayoutAlign="center center">
+    <div fxLayout="column" fxLayoutAlign="center center" fxLayoutAlign.lt-md="center stretch">
         <div fxLayout="column" fxLayoutAlign="center stretch" >
             <app-song-item [song]="item" *ngFor="let item of filteredList | async"></app-song-item>
         </div>

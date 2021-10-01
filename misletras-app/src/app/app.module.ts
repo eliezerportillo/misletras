@@ -16,6 +16,7 @@ import { ShellComponent } from './shell/shell.component';
 
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from "@angular/fire/firestore";
+import { AngularFireAuthModule } from '@angular/fire/auth';
 import { environment } from 'src/environments/environment';
 
 import { SongsModule } from './modules/songs/songs.module';
@@ -24,7 +25,14 @@ import { CoreModule } from './core/core.module';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { SharedModule } from './shared/shared.module';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatIconModule } from '@angular/material/icon';
 
+import { LoginComponent } from './login/login.component';
+import { MatCardModule } from '@angular/material/card';
+import { MatDividerModule } from '@angular/material/divider';
+import { UserMenuComponent } from './login/user-menu/user-menu.component';
 
 
 
@@ -32,6 +40,8 @@ import { SharedModule } from './shared/shared.module';
   declarations: [
     AppComponent,
     ShellComponent,
+    LoginComponent,
+    UserMenuComponent,
   ],
   imports: [
     BrowserModule,
@@ -43,8 +53,14 @@ import { SharedModule } from './shared/shared.module';
     BrowserAnimationsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
+    AngularFireAuthModule,
     SongsModule,
-    PlaylistsModule
+    PlaylistsModule,
+    MatTabsModule,
+    MatCardModule,
+    MatDividerModule,
+    MatMenuModule,
+    MatIconModule
   ],
   // entryComponents: [DeleteSongConfirmationComponent],
   // providers: [SaveSongCommand, CookieService, SocketWebService, SongCookieService],

@@ -12,7 +12,8 @@
     </mat-card-content>
 
     <mat-card-actions align="end">
-        <a [routerLink]="_song.id" mat-button>EDITAR</a>
-        <a [routerLink]="'/playlists/live/' + _song.id" mat-button color="accent">EN VIVO</a>
+        <a [routerLink]="_song.id" mat-button *ngIf="isOwner">EDITAR</a>
+        <!-- <a [routerLink]="_song.id" mat-button>CLONAR</a> -->
+        <a [routerLink]="'/playlists/live/' + _song.id" mat-button color="accent">VER EN SALA</a>
     </mat-card-actions>
 </mat-card>

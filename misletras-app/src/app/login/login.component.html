@@ -1,0 +1,17 @@
+<div class="main" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="16px">
+    <h1 class="logo">{{isSignup ? 'Registrarse' : 'Acceder' }}</h1>
+    <h2 style="text-align:center; font-weight:300;">Tus <strong>propias</strong> canciones</h2>
+
+    <button mat-stroked-button class="google" (click)="googleLogin()">
+        <span>Google</span>
+    </button>
+
+    <button mat-stroked-button class="facebook" (click)="facebookLogin()">
+        <span>Facebook</span>
+    </button>
+
+    <!-- <button mat-stroked-button class="apple" (click)="appleLogin()">
+        <span>Apple</span>
+    </button> -->
+
+</div>

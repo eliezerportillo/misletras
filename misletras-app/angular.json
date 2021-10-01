@@ -75,7 +75,10 @@
               "browserTarget": "misletras-app:build:production"
             },
             "development": {
-              "browserTarget": "misletras-app:build:development"
+              "browserTarget": "misletras-app:build:development",
+              "sslCert": "ssl/localhost.crt",
+              "sslKey": "ssl/localhost.key",
+              "ssl": true
             }
           },
           "defaultConfiguration": "development"

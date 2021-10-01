@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthenticationGuard } from 'src/app/core/auth.guard';
 import { SongResolver } from 'src/app/core/song.resolver';
+import { MyListComponent } from './my-list/my-list.component';
 import { SongEditorComponent } from './song-editor/song-editor.component';
 import { SongListComponent } from './song-list/song-list.component';
 
@@ -26,7 +28,22 @@ const routes: Routes = [
     resolve: {
       song: SongResolver
     }
-  }
+  },
+  {
+    path: 'my-songs',
+    component: MyListComponent,
+    canActivate: [AuthenticationGuard]
+  },
+  {
+    path: 'my-songs/add',
+    pathMatch: 'full',
+    redirectTo: 'songs/add'
+  },
+  {
+    path: 'my-songs/:id',
+    pathMatch: 'full',
+    redirectTo: 'songs/:id'
+  },
 ];
 
 @NgModule({

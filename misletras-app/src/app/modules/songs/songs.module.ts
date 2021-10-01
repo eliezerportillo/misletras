@@ -23,6 +23,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatRippleModule } from '@angular/material/core';
 import { MatChipsModule } from '@angular/material/chips';
 import {MatSelectModule} from '@angular/material/select';
+import { MyListComponent } from './my-list/my-list.component';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import {MatSelectModule} from '@angular/material/select';
     SongEditorComponent,
     SongListComponent,
     SongPreviewComponent,
-    DeleteSongConfirmationComponent
+    DeleteSongConfirmationComponent,
+    MyListComponent
   ],
   imports: [
     SongsRoutingModule,

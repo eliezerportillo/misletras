@@ -3,6 +3,7 @@ import { AbstractControl, FormControl, FormGroup, Validators as validators } fro
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Editor, toDoc, toHTML, Toolbar, Validators } from 'ngx-editor';
+import { AuthService } from 'src/app/core/auth.service';
 import { DeleteSongCommand } from '../commands/delete-song.cmd';
 import { SaveSongCommand } from '../commands/save-song.cmd';
 import { ISong } from '../models';
@@ -19,7 +20,8 @@ export class SongEditorComponent implements OnInit {
     private readonly router: Router,
     private saveSongCommand: SaveSongCommand,
     private deleteSongCommand: DeleteSongCommand,
-    private snackBar: MatSnackBar) {
+    private snackBar: MatSnackBar,
+    private auth: AuthService) {
 
     this.editor = new Editor();
     this.toolbar = [];
@@ -66,6 +68,10 @@ export class SongEditorComponent implements OnInit {
     return this.songParts.length > 1;
   }
 
+  get isOwner() {
+    return this.model.userId == this.auth.user?.uid;
+  }
+
   save() {
     const data: ISong = {
       id: this.songId,
@@ -73,6 +79,7 @@ export class SongEditorComponent implements OnInit {
       text: this.html,
       key: this.form.get('key')?.value,
       bpm: this.form.get('bpm')?.value,
+      userId: this.auth.user?.uid
     }
 
     if (this.form.invalid) {
@@ -83,7 +90,7 @@ export class SongEditorComponent implements OnInit {
 
     this.saveSongCommand.execute(data).then(() => {
       const msg = this.snackBar.open('Listo', 'OK', { duration: 2500 });
-      msg.afterDismissed().toPromise().then(() => this.router.navigate(['songs']))
+      msg.afterDismissed().toPromise().then(() => this.router.navigate(['..']))
     })
   }
 
@@ -91,7 +98,7 @@ export class SongEditorComponent implements OnInit {
     this.deleteSongCommand.execute(this.songId).then((deleted) => {
       if (deleted) {
         const msg = this.snackBar.open('Listo', 'OK', { duration: 2500 });
-        msg.afterDismissed().toPromise().then(() => this.router.navigate(['songs']));
+        msg.afterDismissed().toPromise().then(() => this.router.navigate(['..']));
       }
     });
   }

@@ -1,4 +1,4 @@
-<div class="shell" fxLayout="column">
+<!-- <div class="shell" fxLayout="column">
     <mat-toolbar color="primary" fxLayout="row" fxLayoutAlign="space-between center">
         <span>Mis letras</span>
         <nav>
@@ -9,4 +9,14 @@
         <router-outlet></router-outlet>
     </div>
     <mat-toolbar></mat-toolbar>
-</div>
+</div> -->
+
+<nav mat-tab-nav-bar mat-stretch-tabs headerPosition="below" color="accent">
+    <a mat-tab-link routerLinkActive #rla="routerLinkActive" *ngFor="let link of links" [active]="rla.isActive"
+        [routerLink]="link.link">
+        {{link.label}}
+    </a>
+</nav>
+<app-user-menu></app-user-menu>
+
+<router-outlet></router-outlet>

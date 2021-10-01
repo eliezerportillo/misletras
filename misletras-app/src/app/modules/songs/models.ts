@@ -4,6 +4,7 @@ export interface ISong {
     id: string;
     key: string;
     bpm: string;
+    userId?: string;
 }
 
 export class Song implements ISong {
@@ -27,7 +28,11 @@ export class Song implements ISong {
             }
         })
     }
-    
+
 
     get firstVerse() { return this.parts[0].html; }
+}
+
+export class User {
+    public uid: string = '';
 }
