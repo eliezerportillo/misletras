@@ -15,15 +15,16 @@ export class SongLiveComponent implements OnInit, AfterViewInit {
   contentWidth: number;
   center: number;
   onIndexChanges: EventEmitter<number> = new EventEmitter<number>();
+  socket: SocketWebService;
 
-  constructor(route: ActivatedRoute, private cookier: SongCookieService, private socketWebService: SocketWebService) {
+  constructor(route: ActivatedRoute, cookier: SongCookieService) {
     this.song = new Song(route.snapshot.data['song'] as ISong);
     this.current = this.song.parts[0];
     this.contentWidth = 0;
     this.center = 0;
-    this.socketWebService.callback.subscribe(res => {
-      this.set(res.index);
-    });
+    const room = this.song.id;
+    this.socket = new SocketWebService(room);
+
   }
 
   get index() { return this.song.parts.indexOf(this.current) }
@@ -81,10 +82,12 @@ export class SongLiveComponent implements OnInit, AfterViewInit {
   current: { html: string, notes: string };
 
   ngOnInit(): void {
-    this.cookier.set(this.song);
-
+    // this.cookier.set(this.song);
+    this.socket.callback.subscribe(res => {
+      this.set(res.index);
+    });
     this.onIndexChanges.subscribe((index: number) => {
-      this.socketWebService.emitEvent({ index });
+      this.socket.emitEvent({ index });
     });
   }
 

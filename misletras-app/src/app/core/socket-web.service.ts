@@ -3,21 +3,21 @@ import { Socket } from 'ngx-socket-io';
 import { environment } from 'src/environments/environment';
 import { SongCookieService } from '../modules/playlists/song-live/song-cookie.service';
 
-@Injectable({
-  providedIn: 'root'
-})
+// @Injectable({
+//   providedIn: 'root'
+// })
 export class SocketWebService extends Socket {
 
   outEvent: EventEmitter<any> = new EventEmitter<any>();
   callback: EventEmitter<any> = new EventEmitter<any>();
 
   private eventName = 'event';
-  constructor(private songCookier: SongCookieService) {
+  constructor(room: string) {
     super({
       url: environment.socketWebUrl,
       options: {
         query: {
-          stage: songCookier.get()
+          stage: room
         }
       }
     });

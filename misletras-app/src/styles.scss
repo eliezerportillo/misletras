@@ -1,7 +1,6 @@
-
 // Custom Theming for Angular Material
 // For more information: https://material.angular.io/guide/theming
-@use '~@angular/material' as mat;
+@use "~@angular/material" as mat;
 // Plus imports for other components in your app.
 
 // Include the common styles for Angular Material. We include this here so that you only
@@ -12,21 +11,76 @@
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
-$misletras-app-primary: mat.define-palette(mat.$indigo-palette);
-$misletras-app-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
 
-// The warn palette is optional (defaults to red).
-$misletras-app-warn: mat.define-palette(mat.$red-palette);
+$my-primary: (
+  50: #507DFF,
+  100: #4E90F7,
+  200: #427AD1,
+  300: #3664AB,
+  400: #2A4E85,
+    500: #1E385F,
+  600: #122239,  
+  700: #0F3138,
+  800: #1D5E6C,
+  900: #010404,  
+  contrast: (
+    500: white,
+  ),
+);
+
+$my-accent: (
+  50: #43B8FF,
+  100: #44C5FF,
+  200: #45D2FF,
+  300: #40CDEB,
+  400: #36ACC5,
+    500: #2C8B9F,
+  600: #1D5E6C,
+  700: #0F3138,
+  800: #010404,
+  900: #000000,
+  contrast: (
+    500: white,
+  ),
+);
+
+$my-warn: (
+  50: #FF6C48,
+  100: #FF6048,
+  200: #FF5448,
+  300: #FF4848,
+  400: #FF484F,
+    500: #E94254,
+  600: #B53341,
+  700: #82242E,
+  800: #4E151B,
+  900: #1B0709,
+  contrast: (
+    500: white,
+  ),
+);
+
+// $misletras-app-primary: mat.define-palette(mat.$indigo-palette);
+// $misletras-app-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+// // The warn palette is optional (defaults to red).
+// $misletras-app-warn: mat.define-palette(mat.$red-palette);
+
+$misletras-app-primary: mat.define-palette($my-primary);
+$misletras-app-accent: mat.define-palette($my-accent);
+$misletras-app-warn: mat.define-palette($my-warn);
+
 
 // Create the theme object. A theme consists of configurations for individual
 // theming systems such as "color" or "typography".
-$misletras-app-theme: mat.define-light-theme((
-  color: (
-    primary: $misletras-app-primary,
-    accent: $misletras-app-accent,
-    warn: $misletras-app-warn,
+$misletras-app-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $misletras-app-primary,
+      accent: $misletras-app-accent,
+      warn: $misletras-app-warn,
+    ),
   )
-));
+);
 
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component
@@ -35,9 +89,15 @@ $misletras-app-theme: mat.define-light-theme((
 
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
 
 .spacer {
-  flex: 1 0 auto;;
+  flex: 1 0 auto;
 }

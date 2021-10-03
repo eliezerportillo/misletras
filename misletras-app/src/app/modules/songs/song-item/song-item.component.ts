@@ -9,19 +9,21 @@ import { ISong, Song } from '../models';
 })
 export class SongItemComponent implements OnInit {
   _song?: Song;
-
-  constructor(private auth: AuthService) { }
+  constructor() {
+  }
 
   @Input()
   set song(value: ISong) {
     this._song = new Song(value);
   };
 
-  ngOnInit(): void {
+  @Input()
+  editable: boolean = false;
+
+  ngOnInit(): void {   
+
   }
-  get isOwner() {
-    return this.song?.userId == this.auth.user?.uid;
-  }
+
   get verse() {
     return this._song?.firstVerse
       .replace(/<strong>|<\/strong>|<em>|<\/em>|\/\/|\\\\/, '');

@@ -89,7 +89,7 @@ export class SongEditorComponent implements OnInit {
     }
 
     this.saveSongCommand.execute(data).then(() => {
-      const msg = this.snackBar.open('Listo', 'OK', { duration: 2500 });
+      const msg = this.snackBar.open('Listo', 'OK', { duration: 1500 });
       msg.afterDismissed().toPromise().then(() => this.router.navigate(['..']))
     })
   }
@@ -97,7 +97,7 @@ export class SongEditorComponent implements OnInit {
   delete() {
     this.deleteSongCommand.execute(this.songId).then((deleted) => {
       if (deleted) {
-        const msg = this.snackBar.open('Listo', 'OK', { duration: 2500 });
+        const msg = this.snackBar.open('Listo', 'OK', { duration: 1500 });
         msg.afterDismissed().toPromise().then(() => this.router.navigate(['..']));
       }
     });

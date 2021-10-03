@@ -13,6 +13,7 @@ export class Song implements ISong {
     id: string;
     key: string;
     bpm: string;
+    userId?: string;
     readonly parts: { html: string, notes: string }[];
 
     constructor(song: ISong) {

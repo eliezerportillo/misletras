@@ -37,12 +37,17 @@ const routes: Routes = [
   {
     path: 'my-songs/add',
     pathMatch: 'full',
-    redirectTo: 'songs/add'
+    component: SongEditorComponent,
+    resolve: {
+      song: SongResolver
+    }
   },
   {
     path: 'my-songs/:id',
-    pathMatch: 'full',
-    redirectTo: 'songs/:id'
+    component: SongEditorComponent,
+    resolve: {
+      song: SongResolver
+    }
   },
 ];
 

@@ -14,16 +14,16 @@
     </div>
 
     <div *ngIf="noData" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="8px" style="margin-top: 64px;">
-        <mat-icon>playlist_play</mat-icon>
-        <span>Sin canciones</span>
+        <mat-icon>music_off</mat-icon>
+        <span>Aún no tienes canciones</span>
         <button mat-flat-button color="accent" [routerLink]="['add']">
             Agregar una canción
         </button>
     </div>
 
     <div fxLayout="column" fxLayoutAlign="center center" fxLayoutAlign.lt-md="center stretch">
-        <div fxLayout="column" fxLayoutAlign="center stretch" >
-            <app-song-item [song]="item" *ngFor="let item of filteredList | async"></app-song-item>
+        <div fxLayout="column" fxLayoutAlign="center stretch">
+            <app-song-item [song]="item" *ngFor="let item of filteredList | async" [editable]="true"></app-song-item>
         </div>
     </div>
 </div>
