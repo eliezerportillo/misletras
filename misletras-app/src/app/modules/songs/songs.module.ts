@@ -22,6 +22,8 @@ import { MatListModule } from '@angular/material/list';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatRippleModule } from '@angular/material/core';
 import { MatChipsModule } from '@angular/material/chips';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+
 import {MatSelectModule} from '@angular/material/select';
 import { MyListComponent } from './my-list/my-list.component';
 
@@ -50,6 +52,7 @@ import { MyListComponent } from './my-list/my-list.component';
     MatRippleModule,
     MatChipsModule,
     MatSelectModule,
+    MatSlideToggleModule,
     SharedModule,
     NgxEditorModule
   ],

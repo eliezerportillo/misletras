@@ -79,7 +79,8 @@ export class SongEditorComponent implements OnInit {
       text: this.html,
       key: this.form.get('key')?.value,
       bpm: this.form.get('bpm')?.value,
-      userId: this.auth.user?.uid
+      userId: this.auth.user?.uid || '',
+      inPlaylist: false
     }
 
     if (this.form.invalid) {

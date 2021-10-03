@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output } from '@angular/core';
 import { AuthService } from 'src/app/core/auth.service';
 import { ISong, Song } from '../models';
 
@@ -19,6 +19,9 @@ export class SongItemComponent implements OnInit {
 
   @Input()
   editable: boolean = false;
+
+  @Input()
+  selectable: boolean = false;
 
   ngOnInit(): void {   
 

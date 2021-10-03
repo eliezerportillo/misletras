@@ -6,7 +6,7 @@ import {
 } from '@angular/router';
 import { Observable, of, forkJoin } from 'rxjs';
 import { AngularFirestore } from '@angular/fire/firestore';
-import { ISong } from '../modules/songs/models';
+import { EmptySong, ISong } from '../modules/songs/models';
 
 @Injectable({
   providedIn: 'root'
@@ -15,13 +15,7 @@ export class SongResolver implements Resolve<ISong> {
 
   empty: ISong;
   constructor(private db: AngularFirestore) {
-    this.empty = {
-      id: '',
-      title: '',
-      text: '',
-      key: '',
-      bpm: ''
-    };
+    this.empty = new EmptySong();
   }
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<ISong> | Promise<ISong> {
