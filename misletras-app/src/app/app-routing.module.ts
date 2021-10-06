@@ -6,7 +6,7 @@ const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    redirectTo: '/songs'
+    redirectTo: '/library'
   },
   {
     path: 'login',
@@ -15,6 +15,10 @@ const routes: Routes = [
   {
     path: 'songs',
     loadChildren: () => import('./modules/songs/songs.module').then(m => m.SongsModule)
+  },
+  {
+    path: 'library',
+    loadChildren: () => import('./modules/library/library.module').then(m => m.LibraryModule)
   },
   {
     path: 'playlists',

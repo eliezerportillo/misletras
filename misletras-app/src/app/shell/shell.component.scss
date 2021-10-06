@@ -1,5 +1,9 @@
 .shell {
     height: 100vh;
+
+    .link {
+        font-weight: normal;       
+    }
 }
 
 :host ::ng-deep .mat-tab-header {

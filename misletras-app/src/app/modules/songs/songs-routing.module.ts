@@ -11,13 +11,18 @@ const routes: Routes = [
     path: '',
     component: SongListComponent,
     data: {
-      title: 'Canciones'
+      title: 'Canciones',
+      animation: 'x'
+
     }
   },
   {
     path: 'songs/add',
     pathMatch: 'full',
     component: SongEditorComponent,
+    data: {
+      animation: 'x'
+    },
     resolve: {
       song: SongResolver
     }
@@ -25,6 +30,9 @@ const routes: Routes = [
   {
     path: 'songs/:id',
     component: SongEditorComponent,
+    data: {
+      animation: 'x'
+    },
     resolve: {
       song: SongResolver
     }
@@ -32,12 +40,18 @@ const routes: Routes = [
   {
     path: 'my-songs',
     component: MyListComponent,
+    data: {
+      animation: 'x'
+    },
     canActivate: [AuthenticationGuard]
   },
   {
     path: 'my-songs/add',
     pathMatch: 'full',
     component: SongEditorComponent,
+    data: {
+      animation: 'x'
+    },
     resolve: {
       song: SongResolver
     }
@@ -45,6 +59,9 @@ const routes: Routes = [
   {
     path: 'my-songs/:id',
     component: SongEditorComponent,
+    data: {
+      animation: 'x'
+    },
     resolve: {
       song: SongResolver
     }

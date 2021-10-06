@@ -1,14 +1,17 @@
 <div class="shell" fxLayout="column">
     <nav mat-tab-nav-bar mat-stretch-tabs headerPosition="below" color="accent">
         <a mat-tab-link routerLinkActive #rla="routerLinkActive" *ngFor="let link of links" [active]="rla.isActive"
-            [routerLink]="link.link">
-            {{link.label}}
+            [routerLink]="link.link" fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="4px" class="link">
+            <mat-icon *ngIf="link.icon">{{link.icon}}</mat-icon>
+            <span>{{link.label}}</span>
         </a>
     </nav>
     <main fxFlex>
 
         <app-user-menu></app-user-menu>
 
-        <router-outlet></router-outlet>
+        <div [@routeAnimations]="prepareRoute(outlet)">
+            <router-outlet #outlet="outlet"></router-outlet>
+        </div>
     </main>
 </div>
