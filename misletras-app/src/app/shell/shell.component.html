@@ -7,11 +7,6 @@
         </a>
     </nav>
     <main fxFlex>
-
-        <app-user-menu></app-user-menu>
-
-        <div [@routeAnimations]="prepareRoute(outlet)">
-            <router-outlet #outlet="outlet"></router-outlet>
-        </div>
+        <router-outlet #outlet="outlet"></router-outlet>
     </main>
 </div>

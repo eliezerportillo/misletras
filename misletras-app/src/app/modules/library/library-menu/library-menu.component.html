@@ -1,5 +1,20 @@
+<mat-toolbar>
+    <app-user-menu></app-user-menu>
+    <span>Tu biblioteca</span>
+    <span class="spacer"></span>
+    <a mat-button>
+        
+        <mat-icon>search</mat-icon>
+    </a>
+    <a mat-button>
+        <mat-icon>add</mat-icon>
+    </a>
+</mat-toolbar>
+
 <mat-nav-list>
-    <h3 mat-subheader>Biblioteca</h3>
+    <div mat-subheader>
+
+    </div>
 
     <mat-list-item [routerLink]="['/my-songs']">
         <mat-icon mat-list-icon>music_note</mat-icon>
@@ -7,6 +22,6 @@
     </mat-list-item>
     <mat-list-item [routerLink]="['/my-songs']">
         <mat-icon mat-list-icon>queue_music</mat-icon>
-        <div mat-line>Repertorios</div>
+        <div mat-line>Mis repertorios</div>
     </mat-list-item>
 </mat-nav-list>

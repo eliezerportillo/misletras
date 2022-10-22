@@ -8,6 +8,9 @@ import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
 
 import { SharedModule } from 'src/app/shared/shared.module';
+import { WidgetModule } from '../widget/widget.module';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
 
 
 @NgModule({
@@ -18,7 +21,10 @@ import { SharedModule } from 'src/app/shared/shared.module';
     SharedModule,
     LibraryRoutingModule,
     MatListModule,
-    MatIconModule
+    MatIconModule,
+    WidgetModule,
+    MatToolbarModule,
+    MatButtonModule
   ]
 })
 export class LibraryModule { }

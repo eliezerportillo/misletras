@@ -32,7 +32,6 @@ import { MatIconModule } from '@angular/material/icon';
 import { LoginComponent } from './login/login.component';
 import { MatCardModule } from '@angular/material/card';
 import { MatDividerModule } from '@angular/material/divider';
-import { UserMenuComponent } from './login/user-menu/user-menu.component';
 
 
 
@@ -40,8 +39,7 @@ import { UserMenuComponent } from './login/user-menu/user-menu.component';
   declarations: [
     AppComponent,
     ShellComponent,
-    LoginComponent,
-    UserMenuComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
